@@ -8,7 +8,7 @@
  * details.
  *********************************************************************/
 
-#include "munit.h"
+#include "../munit.h"
 
 /* This is just to disable an MSVC warning about conditional
  * expressions being constant, which you shouldn't have to do for your
