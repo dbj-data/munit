@@ -1,6 +1,7 @@
-*~
-.#*
-/*.o
-/example
-/*.exe
-/*.dll
+## dbj
+*.exe
+*.dll
+*.obj
+*.pdb
+*.ilk
+
