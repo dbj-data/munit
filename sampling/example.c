@@ -36,6 +36,10 @@ test_compare(const MunitParameter params[], void* data) {
 
   /* Let's start with the basics. */
   munit_assert(0 != 1);
+  // if dbj changd to failure
+  // munit_assert(0 == 1);
+  // the test is interrupted and next test gets executed
+  // that is this function is exited
 
   /* There is also the more verbose, though slightly more descriptive
      munit_assert_true/false: */
@@ -43,9 +47,13 @@ test_compare(const MunitParameter params[], void* data) {
 
   /* You can also call munit_error and munit_errorf yourself.  We
    * won't do it is used to indicate a failure, but here is what it
-   * would look like: */
-  /* munit_error("FAIL"); */
-  /* munit_errorf("Goodbye, cruel %s", "world"); */
+   * would look like: 
+   * 
+   munit_error("MSFT DBG just exits here"); 
+   this line never happens
+   munit_errorf("Goodbye, cruel %s", "world"); 
+   
+   */
 
   /* There are macros for comparing lots of types. */
   munit_assert_char('a', ==, 'a');
@@ -344,6 +352,13 @@ static const MunitSuite test_suite = {
 #include <stdlib.h>
 
 int main(int argc, char* argv[MUNIT_ARRAY_PARAM(argc + 1)]) {
+  /* DBJ added
+   not just the presence of the ANSICON envirnment variable
+   is enough ...
+  */
+  #if defined(_MSC_VER)
+  system("@chcp 65001 >NUL");
+  #endif
   /* Finally, we'll actually run our test suite!  That second argument
    * is the user_data parameter which will be passed either to the
    * test or (if provided) the fixture setup function. */

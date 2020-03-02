@@ -6,7 +6,7 @@
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceFolder}\\sampling\\munit_dbg.exe",
-            "args": [],
+            "args": ["--color", "always"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}\\sampling",
             "environment": [],
