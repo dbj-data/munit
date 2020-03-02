@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo ${workspaceFolder}",
+            "label": "clean",
             "type": "shell",
-            "command": "echo ${workspaceFolder}",
+            "command": "del /s *.obj *.exe *.pdb *.ilk",
             "problemMatcher": []
         },
         {
@@ -13,18 +13,13 @@
             "command": "cl.exe",
             "args": [
                 "/MDd",
-                "-D_HAS_EXCEPTIONS=0",
-                "/I",
-                "C:\\Program Files (x86)\\Visual Leak Detector\\include",
                 "/I",
                 "${workspaceFolder}\\sampling",
                 "/Zi",
                 "/Fe:",
                 "${workspaceFolder}\\sampling\\munit_dbg.exe",
                 "${workspaceFolder}\\sampling\\example.c",
-                "${workspaceFolder}\\munit.c",
-                "/link",
-                "/LIBPATH:C:\\Program Files (x86)\\Visual Leak Detector\\lib\\Win64"
+                "${workspaceFolder}\\munit.c"
             ],
             "group": {
                 "kind": "build",
@@ -41,9 +36,6 @@
             "command": "cl.exe",
             "args": [
                 "/MDd",
-                "-D_HAS_EXCEPTIONS=0",
-                "/I",
-                "C:\\Program Files (x86)\\Visual Leak Detector\\include",
                 "/Fe:",
                 "${workspaceFolder}\\sampling\\munit.exe",
                 "${workspaceFolder}\\sampling\\example.c",
